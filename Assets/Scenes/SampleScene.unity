@@ -129,8 +129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 61046512}
   - component: {fileID: 61046511}
+  - component: {fileID: 61046513}
   m_Layer: 0
-  m_Name: GridSpawn
+  m_Name: GridController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridSpawner
   cellPrefab: {fileID: 5753109875882331940, guid: a33937925d4a53d4193f11c8f9939b42, type: 3}
   size: 10
+  userController: {fileID: 2013500795}
 --- !u!4 &61046512
 Transform:
   m_ObjectHideFlags: 0
@@ -165,6 +167,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &61046513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61046510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f2dd588c48f4f4dac9836a59063470d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.GridVisual
+  redMaterial: {fileID: 2100000, guid: 54bf4b803aebffe459be7935dd5add0a, type: 2}
+  greenMaterial: {fileID: 2100000, guid: 77a799b79e8d89f40a86c46cb76a87d1, type: 2}
+  blueMaterial: {fileID: 2100000, guid: fb14e90bf570c5d44a010f59a7faab53, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0

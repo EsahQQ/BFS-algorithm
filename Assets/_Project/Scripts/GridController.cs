@@ -60,8 +60,10 @@ namespace _Project.Scripts
         private void SpawnGrid()
         {
             for (int i = 0; i < size; i++)
-            for (int j = 0; j < size; j++)
-                _grid[i, j] = Instantiate(cellPrefab, new Vector3(i, 0, j), Quaternion.identity);
+                for (int j = 0; j < size; j++)
+                    _grid[i, j] = Instantiate(cellPrefab, new Vector3(i, 0, j), Quaternion.identity);
+            
+            Camera.main!.transform.position = new Vector3((size - 1) / 2f, size * 0.75f, (size - 1) / 2f);
         }
     }
 }
