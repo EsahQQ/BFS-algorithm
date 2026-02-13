@@ -9,6 +9,7 @@ namespace _Project.Scripts
         private Camera _cam;
 
         public event Action<Transform, int> OnUserClickOnCell;
+        public event Action OnUserClickOnStartButton;
         private void Awake()
         {
             _cam = Camera.main;
@@ -29,6 +30,11 @@ namespace _Project.Scripts
                     if (hit.transform != null)
                         OnUserClickOnCell?.Invoke(hit.transform, btn);
             }
+        }
+
+        public void StartPath()
+        {
+            OnUserClickOnStartButton?.Invoke();
         }
     }
 }
