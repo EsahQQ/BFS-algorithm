@@ -7,11 +7,12 @@ namespace _Project.Scripts
 {
     public class GridVisual : MonoBehaviour
     {
-        [SerializeReference] private Material endPointMaterial;
-        [SerializeReference] private Material startPointMaterial;
-        [SerializeReference] private Material foundCellMaterial;
-        [SerializeReference] private Material pathMaterial;
-        [SerializeReference] private Material defaultMaterial;
+        [SerializeField] private Material endPointMaterial;
+        [SerializeField] private Material startPointMaterial;
+        [SerializeField] private Material foundCellMaterial;
+        [SerializeField] private Material pathMaterial;
+        [SerializeField] private Material wallMaterial;
+        [SerializeField] private Material defaultMaterial;
         private GameObject _startCell;
         private GameObject _endCell;
         private GridController _gridController;
@@ -25,6 +26,13 @@ namespace _Project.Scripts
         {
             _gridController.OnCellBecomeKeyPoint += ChangeKeyPointCell;
             _gridController.OnCancelFoundAlgorithm += DoFoundVisual;
+            _gridController.OnChangeCellWall += ChangeCellWall;
+        }
+
+        private void ChangeCellWall(GameObject cell, bool isWall)
+        {
+            var component = cell.GetComponent<Renderer>();
+            component.material = isWall ? wallMaterial : defaultMaterial;
         }
 
         private void DoFoundVisual(Dictionary<(int, int), (int, int)> e)
@@ -59,7 +67,8 @@ namespace _Project.Scripts
         private void OnDisable()
         {
             _gridController.OnCellBecomeKeyPoint -= ChangeKeyPointCell;
-            _gridController.OnCancelFoundAlgorithm += DoFoundVisual;
+            _gridController.OnCancelFoundAlgorithm -= DoFoundVisual;
+            _gridController.OnChangeCellWall -= ChangeCellWall;
         }
 
         private void ChangeKeyPointCell(GameObject obj, int dir)
