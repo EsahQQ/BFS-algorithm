@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridSpawner
   cellPrefab: {fileID: 5753109875882331940, guid: a33937925d4a53d4193f11c8f9939b42, type: 3}
-  size: 10
+  size: 20
   userController: {fileID: 2013500795}
 --- !u!4 &61046512
 Transform:
